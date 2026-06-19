@@ -2,26 +2,159 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap");
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-inter text-charcoal bg-off-white;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-cormorant;
+  }
+
+  ::selection {
+    background-color: #c9a84c33;
+    color: #0b3d5e;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .eyebrow {
+    @apply font-inter text-[11px] uppercase tracking-ultra-wide text-gold font-medium;
+  }
+
+  .gold-divider {
+    @apply w-16 h-px bg-gold mx-auto;
+  }
+
+  .gold-divider-left {
+    @apply w-16 h-px bg-gold;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-gold text-ocean-deep 
+           font-inter text-sm font-semibold uppercase tracking-wide
+           transition-all duration-300 hover:bg-gold-light;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border border-white/60 
+           text-white font-inter text-sm font-semibold uppercase tracking-wide
+           transition-all duration-300 hover:bg-white/10 hover:border-white;
+  }
+
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center px-8 py-4 border border-gold/60 
+           text-gold font-inter text-sm font-semibold uppercase tracking-wide
+           transition-all duration-300 hover:bg-gold/10 hover:border-gold;
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .section-spacing {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .glass-panel {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-off-white border border-charcoal/10 
+           font-inter text-sm text-charcoal placeholder:text-charcoal/40
+           focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30
+           transition-all duration-200;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* React DatePicker custom styles */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker {
+  font-family: "Inter", sans-serif !important;
+  border: 1px solid #c9a84c33 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+}
+
+.react-datepicker__header {
+  background-color: #0b3d5e !important;
+  border-bottom: 1px solid #c9a84c !important;
+  border-radius: 0 !important;
+  padding-top: 12px !important;
+}
+
+.react-datepicker__current-month {
+  color: #fafaf8 !important;
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 1.1rem !important;
+}
+
+.react-datepicker__day-name {
+  color: #c9a84c !important;
+  font-size: 0.7rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range {
+  background-color: #c9a84c !important;
+  color: #0b3d5e !important;
+  border-radius: 0 !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #e8f4f8 !important;
+  border-radius: 0 !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #c9a84c !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #c9a84c55 !important;
+  border-radius: 0 !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafaf8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9a84c66;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a84c;
 }
